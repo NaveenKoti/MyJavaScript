@@ -1,0 +1,67 @@
+<html>
+
+<head>
+    <title>
+        Fibbonacci number
+    </title>
+</head>
+
+<body>
+    <center>
+        <h1>Fibbonacci</h1>
+        <span>
+            <input type="number" id="fibo" />
+            <input type="button" value="Generate" onClick="generateFibo()" />
+        </span>
+        <h3 id="numberGenerated"></h3>
+        <p id="displayImage"></p>
+    </center>
+</body>
+<script>
+    function generateFibo() {
+        document.getElementById('numberGenerated').innerText = "";
+        var limit = document.getElementById('fibo').value;
+        if (!limit || limit === 0 || limit < 0) {
+            
+            var image = document.createElement("img");
+            var imageParent = document.getElementById("displayImage");
+            if(imageParent.childNodes.length > 0){
+                imageParent.innerHTML = '';
+            }
+            image.id = "id";
+            image.className = "class";
+            image.style.height = '100px';
+            image.style.width = '200px';
+            image.src = "https://media.giphy.com/media/l2JHS7po8pGz94TgQ/giphy.gif";
+            imageParent.appendChild(image);
+            
+        } else {
+            var first = 0;
+            var second = 1;
+            var sum = 0;
+            for (var x = 0; x <= limit; x++) {
+                sum = first + second;
+                first = second;
+                second = sum;
+                if (x == limit) {
+                    document.getElementById('numberGenerated').innerText += sum;
+                } else {
+                    document.getElementById('numberGenerated').innerText += sum + ',';
+                }
+            }
+            var image = document.createElement("img");
+            var imageParent = document.getElementById("displayImage");
+            if(imageParent.childNodes.length > 0){
+                imageParent.innerHTML = '';
+            }
+            image.id = "id";
+            image.className = "class";
+            image.style.height = '100px';
+            image.style.width = '200px';
+            image.src = "https://media.giphy.com/media/qlwnHTKCPeak0/giphy.gif";
+            imageParent.appendChild(image);
+        }
+    }
+</script>
+
+</html>
